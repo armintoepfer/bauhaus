@@ -47,7 +47,7 @@ def genMappingCCS(pflow, ccsSets, reference):
     """
     mapRule = pflow.genRuleOnce(
         "mapCCS",
-        "$gridSMP pbalign --tmpDir=$scratchDir --nproc $ncpus $in $reference $out")
+        "$gridSMP pbalign --algorithmOptions=\" --maxMatch 13\" --tmpDir=$scratchDir --nproc $ncpus $in $reference $out")
     alignmentSets = []
     for ccsSet in ccsSets:
         with pflow.context("entityName", entityName(ccsSet)):
